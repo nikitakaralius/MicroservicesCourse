@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PlatformService.Models;
-
-namespace PlatformService.Persistence;
+﻿namespace PlatformService.Persistence;
 
 public class ApplicationDbContext : DbContext
 {
