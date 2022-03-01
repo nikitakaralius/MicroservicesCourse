@@ -8,5 +8,6 @@ public static class DependencyInjection
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
         services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("InMemory"));
+        services.AddScoped<IPlatformRepository, PlatformRepository>();
     }
 }
