@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B20E80A1-BE9E-4929-B7B5-AFDA33C35FC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatformService", "src\PlatformService\PlatformService.csproj", "{BA2A3E6E-5514-4B6D-8B83-90EF9CBE8C87}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BA2A3E6E-5514-4B6D-8B83-90EF9CBE8C87} = {B20E80A1-BE9E-4929-B7B5-AFDA33C35FC9}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA2A3E6E-5514-4B6D-8B83-90EF9CBE8C87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA2A3E6E-5514-4B6D-8B83-90EF9CBE8C87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA2A3E6E-5514-4B6D-8B83-90EF9CBE8C87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA2A3E6E-5514-4B6D-8B83-90EF9CBE8C87}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
