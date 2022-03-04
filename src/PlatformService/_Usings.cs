@@ -4,6 +4,8 @@ global using PlatformService.Models.External;
 global using PlatformService.Models.Domain;
 global using PlatformService.Persistence.Repository;
 global using PlatformService.Extensions;
+global using PlatformService.SyncDataServices;
+global using PlatformService.SyncDataServices.Http;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.EntityFrameworkCore;
 global using PlatformService.Persistence.Development;

@@ -10,5 +10,6 @@ public static class DependencyInjection
         services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("InMemory"));
         services.AddScoped<IPlatformRepository, PlatformRepository>();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
     }
 }
