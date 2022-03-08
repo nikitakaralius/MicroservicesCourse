@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: mssql-claim
 spec:
-  accessMode:
+  accessModes:
     - ReadWriteMany
   resources:
     requests:
