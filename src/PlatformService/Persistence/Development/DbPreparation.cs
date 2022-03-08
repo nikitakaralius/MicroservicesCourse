@@ -22,6 +22,7 @@ public static class DbPreparation
             {
                 Console.WriteLine($"==> Could not run migrations: {e.Message}");
             }
+            return;
         }
         if (context.Platforms.Any())
         {
