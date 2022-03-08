@@ -6,6 +6,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatformService", "src\Plat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandsService", "src\CommandsService\CommandsService.csproj", "{6E220891-2790-4327-ACFD-9BA9F991BDBE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "K8S", "K8S", "{FBD49874-C9E3-4777-9496-0A6E76E98D0D}"
+	ProjectSection(SolutionItems) = preProject
+		src\K8S\commands-deployment.yaml = src\K8S\commands-deployment.yaml
+		src\K8S\ingress-service.yaml = src\K8S\ingress-service.yaml
+		src\K8S\local-pvc.yaml = src\K8S\local-pvc.yaml
+		src\K8S\mssql-platform-deployment.yaml = src\K8S\mssql-platform-deployment.yaml
+		src\K8S\platforms-deployment.yaml = src\K8S\platforms-deployment.yaml
+		src\K8S\platforms-nodeport-service.yaml = src\K8S\platforms-nodeport-service.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,6 +24,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{BA2A3E6E-5514-4B6D-8B83-90EF9CBE8C87} = {B20E80A1-BE9E-4929-B7B5-AFDA33C35FC9}
 		{6E220891-2790-4327-ACFD-9BA9F991BDBE} = {B20E80A1-BE9E-4929-B7B5-AFDA33C35FC9}
+		{FBD49874-C9E3-4777-9496-0A6E76E98D0D} = {B20E80A1-BE9E-4929-B7B5-AFDA33C35FC9}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{BA2A3E6E-5514-4B6D-8B83-90EF9CBE8C87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

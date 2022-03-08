@@ -12,3 +12,5 @@ Bin/
 obj/
 Obj/
 *.DotSettings.user
+# remove this as soon as you understand how to use user secrets
+src/PlatformService/appsettings.json

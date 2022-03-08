@@ -2,15 +2,28 @@
 
 public static class DbPreparation
 {
-    public static void PrepareDbPopulation(this IApplicationBuilder app)
+    public static void PrepareDbPopulation(this IApplicationBuilder app, IHostEnvironment env)
     {
         using IServiceScope serviceScope = app.ApplicationServices.CreateScope();
         ApplicationDbContext? context = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
-        context?.SeedData();
+        context?.SeedData(env);
     }
 
-    private static void SeedData(this ApplicationDbContext context)
+    private static void SeedData(this ApplicationDbContext context, IHostEnvironment env)
     {
+        if (env.IsProduction())
+        {
+            Console.WriteLine("Attempting to apply migrations...");
+            try
+            {
+                context.Database.Migrate();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"==> Could not run migrations: {e.Message}");
+            }
+            return;
+        }
         if (context.Platforms.Any())
         {
             Console.WriteLine("==> We already have data");
