@@ -6,5 +6,7 @@ public class Platform
 
     public int ExternalId { get; init; }
 
-    public string Name { get; set; } = null!;
+    public string Name { get; init; } = null!;
+
+    public ICollection<Command> Commands { get; init; } = new List<Command>();
 }
