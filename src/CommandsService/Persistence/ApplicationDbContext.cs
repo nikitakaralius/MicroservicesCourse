@@ -1,5 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-
 namespace CommandsService.Persistence;
 
 public class ApplicationDbContext : DbContext

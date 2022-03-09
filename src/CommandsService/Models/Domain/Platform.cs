@@ -1,4 +1,4 @@
-namespace CommandsService.Models;
+namespace CommandsService.Models.Domain;
 
 public class Platform
 {
