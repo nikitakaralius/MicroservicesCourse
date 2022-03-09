@@ -10,5 +10,5 @@ public class Command
 
     public int PlatformId { get; init; }
 
-    public Platform Platform { get; init; }
+    public Platform Platform { get; init; } = null!;
 }
