@@ -17,7 +17,9 @@ public class PlatformsController : ControllerBase
     {
         IEnumerable<Platform> platforms = _repository.AllPlatforms();
         IEnumerable<PlatformTorRead> platformsTorRead = _mapper.Map<IEnumerable<PlatformTorRead>>(platforms);
-        return Ok(platformsTorRead);
+        return platformsTorRead.Any()
+            ? Ok(platformsTorRead)
+            : NoContent();
     }
 
     [HttpPost]
