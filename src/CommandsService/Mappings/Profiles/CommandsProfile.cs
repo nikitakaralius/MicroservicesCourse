@@ -1,4 +1,4 @@
-namespace CommandsService.Profiles;
+namespace CommandsService.Mappings.Profiles;
 
 public class CommandsProfile : Profile
 {

@@ -12,6 +12,14 @@ public class PlatformsController : ControllerBase
         _mapper = mapper;
     }
 
+    [HttpGet]
+    public ActionResult<IEnumerable<Platform>> AllPlatforms()
+    {
+        IEnumerable<Platform> platforms = _repository.AllPlatforms();
+        IEnumerable<PlatformTorRead> platformsTorRead = _mapper.Map<IEnumerable<PlatformTorRead>>(platforms);
+        return Ok(platformsTorRead);
+    }
+
     [HttpPost]
     public IActionResult TestInboundConnection()
     {
