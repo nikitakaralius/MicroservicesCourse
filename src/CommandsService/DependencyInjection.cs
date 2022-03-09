@@ -7,7 +7,9 @@ public static class DependencyInjection
         services.AddControllers();
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
+        services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("InMemory"));
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        services.AddScoped<ICommandRepository, CommandRepository>();
         return services;
     }
 }

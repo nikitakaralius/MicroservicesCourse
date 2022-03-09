@@ -6,6 +6,6 @@ public class CommandsProfile : Profile
     {
         CreateMap<Command, CommandToRead>();
         CreateMap<CommandToCreate, Command>()
-            .ConvertUsing(c => new Command(0, c.HowTo, c.Line, 0, null));
+            .ConvertUsing(c => new Command(0, c.HowTo, c.Line, 0, Platform.NullObject));
     }
 }

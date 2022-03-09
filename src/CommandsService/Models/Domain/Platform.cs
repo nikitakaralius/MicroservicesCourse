@@ -9,4 +9,6 @@ public class Platform
     public string Name { get; init; } = null!;
 
     public ICollection<Command> Commands { get; init; } = new List<Command>();
+
+    public static Platform NullObject => new();
 }
