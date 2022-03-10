@@ -13,7 +13,7 @@ public class CommandsController : ControllerBase
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<Command>> AllCommandsFor(int platformId)
+    public ActionResult<IEnumerable<CommandToRead>> AllCommandsFor(int platformId)
     {
         if (_repository.PlatformExists(platformId) == false)
         {
@@ -25,7 +25,7 @@ public class CommandsController : ControllerBase
     }
 
     [HttpGet(Name = nameof(CommandBy))]
-    public ActionResult<Command> CommandBy(int platformId, int commandId)
+    public ActionResult<CommandToRead> CommandBy(int platformId, int commandId)
     {
         if (_repository.PlatformExists(platformId) == false)
         {
@@ -40,7 +40,7 @@ public class CommandsController : ControllerBase
         return Ok(commandToRead);
     }
 
-    public ActionResult<Command> Create(int platformId, CommandToCreate? commandToCreate)
+    public ActionResult<CommandToRead> Create(int platformId, CommandToCreate? commandToCreate)
     {
         if (_repository.PlatformExists(platformId) == false)
         {
