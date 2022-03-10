@@ -8,5 +8,4 @@ global using PlatformService.SyncDataServices;
 global using PlatformService.SyncDataServices.Http;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.EntityFrameworkCore;
-global using PlatformService.Persistence.Development;
 global using AutoMapper;

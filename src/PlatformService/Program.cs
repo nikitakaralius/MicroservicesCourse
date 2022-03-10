@@ -15,5 +15,5 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthorization();
 app.MapControllers();
-app.PrepareDbPopulation(builder.Environment);
+app.SeedPlatformsData(builder.Environment);
 app.Run();
