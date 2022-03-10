@@ -24,7 +24,7 @@ public class CommandsController : ControllerBase
         return Ok(commandsToRead);
     }
 
-    [HttpGet(Name = nameof(CommandBy))]
+    [HttpGet("{commandId:int}",Name = nameof(CommandBy))]
     public ActionResult<CommandToRead> CommandBy(int platformId, int commandId)
     {
         if (_repository.PlatformExists(platformId) == false)
@@ -40,13 +40,10 @@ public class CommandsController : ControllerBase
         return Ok(commandToRead);
     }
 
-    public ActionResult<CommandToRead> Create(int platformId, CommandToCreate? commandToCreate)
+    [HttpPost]
+    public ActionResult<CommandToRead> Create(int platformId, CommandToCreate commandToCreate)
     {
         if (_repository.PlatformExists(platformId) == false)
-        {
-            return BadRequest();
-        }
-        if (commandToCreate is null)
         {
             return BadRequest();
         }
