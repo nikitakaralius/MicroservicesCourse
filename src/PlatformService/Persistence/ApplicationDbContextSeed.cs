@@ -1,8 +1,8 @@
-﻿namespace PlatformService.Persistence.Development;
+﻿namespace PlatformService.Persistence;
 
-public static class DbPreparation
+public static class ApplicationDbContextSeed
 {
-    public static void PrepareDbPopulation(this IApplicationBuilder app, IHostEnvironment env)
+    public static void SeedPlatformsData(this IApplicationBuilder app, IHostEnvironment env)
     {
         using IServiceScope serviceScope = app.ApplicationServices.CreateScope();
         ApplicationDbContext? context = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
