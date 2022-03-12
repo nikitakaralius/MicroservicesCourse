@@ -17,9 +17,9 @@ spec:
           image: rabbitmq:3-management
           ports:
             - containerPort: 15672
-              name: rabbitmq-management-port
+              name: rbmq-mng-port
             - containerPort: 5672
-              name: rabbitmq-messaging-port
+              name: rbmq-msg-port
 ---
 apiVersion: v1
 kind: Service
@@ -30,11 +30,11 @@ spec:
   selector:
     app: rabbitmq
   ports:
-    - name: rabbitmq-management-port
+    - name: rbmq-mng-port
       protocol: TCP
       port: 15672
       targetPort: 15672
-    - name: rabbitmq-messaging-port
+    - name: rbmq-msg-port
       protocol: TCP
       port: 5672
       targetPort: 5672
@@ -42,17 +42,17 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: rabbitmq-loadbalancer
+  name: rbmq-loadbalancer
 spec:
   type: LoadBalancer
   selector:
     app: rabbitmq
   ports:
-    - name: rabbitmq-management-port
+    - name: rbmq-mng-port
       protocol: TCP
       port: 15672
       targetPort: 15672
-    - name: rabbitmq-messaging-port
+    - name: rbmq-msg-port
       protocol: TCP
       port: 5672
       targetPort: 5672
