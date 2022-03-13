@@ -1,6 +1,6 @@
 namespace PlatformService.Models.External;
 
-public class PlatformToPublish
+public record PlatformToPublish
 {
     public int Id { get; init; }
 

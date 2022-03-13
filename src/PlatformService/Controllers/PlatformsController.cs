@@ -6,12 +6,18 @@ public class PlatformsController : ControllerBase
     private readonly IPlatformRepository _repository;
     private readonly IMapper _mapper;
     private readonly ICommandDataClient _commandDataClient;
+    private readonly IMessageBusClient _messageBusClient;
 
-    public PlatformsController(IPlatformRepository repository, IMapper mapper, ICommandDataClient commandDataClient)
+    public PlatformsController(
+        IPlatformRepository repository,
+        IMapper mapper,
+        ICommandDataClient commandDataClient,
+        IMessageBusClient messageBusClient)
     {
         _repository = repository;
         _mapper = mapper;
         _commandDataClient = commandDataClient;
+        _messageBusClient = messageBusClient;
     }
 
     [HttpGet]
@@ -43,6 +49,16 @@ public class PlatformsController : ControllerBase
         catch (Exception e)
         {
             Console.WriteLine($"==> Could not send synchronously: {e.Message}");
+        }
+
+        try
+        {
+            PlatformToPublish platformToPublish = _mapper.Map<PlatformToPublish>(platform);
+            _messageBusClient.PublishNewPlatform(platformToPublish with { Event = "Platform_Published"});
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"==> Could not send asynchronously: {e.Message}");
         }
 
         return CreatedAtRoute(nameof(PlatformBy), new {Id = platformToRead.Id}, platformToRead);

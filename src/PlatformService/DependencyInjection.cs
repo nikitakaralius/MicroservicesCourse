@@ -23,5 +23,6 @@ public static class DependencyInjection
         services.AddScoped<IPlatformRepository, PlatformRepository>();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
+        services.AddSingleton<IMessageBusClient, MessageBusClient>();
     }
 }
