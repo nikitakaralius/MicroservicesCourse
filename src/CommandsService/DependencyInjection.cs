@@ -10,6 +10,7 @@ public static class DependencyInjection
         services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("InMemory"));
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.AddScoped<ICommandRepository, CommandRepository>();
+        services.AddSingleton<IEventProcessor, EventProcessorRouter>();
         return services;
     }
 }
