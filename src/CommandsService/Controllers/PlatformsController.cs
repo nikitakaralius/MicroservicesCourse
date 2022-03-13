@@ -16,7 +16,7 @@ public class PlatformsController : ControllerBase
     public ActionResult<IEnumerable<Platform>> AllPlatforms()
     {
         IEnumerable<Platform> platforms = _repository.AllPlatforms();
-        IEnumerable<PlatformTorRead> platformsTorRead = _mapper.Map<IEnumerable<PlatformTorRead>>(platforms);
+        IEnumerable<PlatformToRead> platformsTorRead = _mapper.Map<IEnumerable<PlatformToRead>>(platforms);
         return Ok(platformsTorRead);
     }
 
