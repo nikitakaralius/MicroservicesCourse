@@ -11,6 +11,7 @@ public class CommandRepository : ICommandRepository
     public IEnumerable<Platform> AllPlatforms() => _context.Platforms;
 
     public bool PlatformExists(int id) => _context.Platforms.Any(p => p.Id == id);
+    
     public bool ExternalPlatformsExists(int id) =>
         _context.Platforms.Any(p => p.ExternalId == id);
 
