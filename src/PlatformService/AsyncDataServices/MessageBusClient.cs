@@ -51,14 +51,8 @@ public class MessageBusClient : IMessageBusClient, IDisposable
 
     public void Dispose()
     {
-        if (_channel.IsOpen)
-        {
-            _channel.Close();
-        }
-        if (_connection.IsOpen)
-        {
-            _connection.Close();
-        }
+        if (_channel.IsOpen) _channel.Close();
+        if (_connection.IsOpen) _connection.Close();
         _connection.Dispose();
         _channel.Dispose();
     }

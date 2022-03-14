@@ -11,6 +11,7 @@ public static class DependencyInjection
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.AddScoped<ICommandRepository, CommandRepository>();
         services.AddSingleton<IEventProcessor, EventProcessorRouter>();
+        services.AddHostedService<MessageBusSubscriber>();
         return services;
     }
 }
