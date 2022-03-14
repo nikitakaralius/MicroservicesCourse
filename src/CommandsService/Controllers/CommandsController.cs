@@ -48,9 +48,9 @@ public class CommandsController : ControllerBase
             return BadRequest();
         }
         Command command = _mapper.Map<Command>(commandToCreate);
-        _repository.Create(platformId, command);
+        Command createdCommand = _repository.Create(platformId, command);
         _repository.SaveChanges();
-        CommandToRead commandToRead = _mapper.Map<CommandToRead>(command);
+        CommandToRead commandToRead = _mapper.Map<CommandToRead>(createdCommand);
         return CreatedAtRoute(nameof(CommandBy),
             new {PlatformId = platformId, CommandId = commandToRead.Id},
             commandToRead);

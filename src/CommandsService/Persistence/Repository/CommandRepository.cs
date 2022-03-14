@@ -27,6 +27,10 @@ public class CommandRepository : ICommandRepository
             .FirstOrDefault(c => c.PlatformId == platformId
                                  && c.Id == commandId);
 
-    public void Create(int platformId, Command command) =>
-        _context.Commands.Add(command with {PlatformId = platformId});
+    public Command Create(int platformId, Command command)
+    {
+        Command commandToAdd = command with {PlatformId = platformId};
+        _context.Commands.Add(commandToAdd);
+        return commandToAdd;
+    }
 }

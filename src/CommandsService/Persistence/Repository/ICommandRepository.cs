@@ -11,5 +11,5 @@ public interface ICommandRepository
 
     IEnumerable<Command> CommandsForPlatform(int platformId);
     Command? CommandBy(int platformId, int commandId);
-    void Create(int platformId, Command command);
+    Command Create(int platformId, Command command);
 }

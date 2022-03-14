@@ -6,10 +6,6 @@ public class PlatformsProfile : Profile
     {
         CreateMap<Platform, PlatformToRead>();
         CreateMap<PlatformToReceive, Platform>()
-            .ConvertUsing(p => new Platform
-            {
-                ExternalId = p.Id,
-                Name = p.Name
-            });
+            .ForMember(p => p.ExternalId, src => src.MapFrom(x => x.Id));
     }
 }
