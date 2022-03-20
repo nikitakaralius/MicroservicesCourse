@@ -2,6 +2,9 @@
 global using CommandsService;
 global using CommandsService.Models.Domain;
 global using CommandsService.Models.External;
+global using CommandsService.Extensions;
+global using CommandsService.EventProcessing;
+global using CommandsService.AsyncDataServices;
 global using CommandsService.Persistence;
 global using CommandsService.Persistence.Repository;
 global using Microsoft.EntityFrameworkCore;

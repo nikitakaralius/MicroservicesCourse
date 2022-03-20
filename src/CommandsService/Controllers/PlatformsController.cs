@@ -16,7 +16,14 @@ public class PlatformsController : ControllerBase
     public ActionResult<IEnumerable<Platform>> AllPlatforms()
     {
         IEnumerable<Platform> platforms = _repository.AllPlatforms();
-        IEnumerable<PlatformTorRead> platformsTorRead = _mapper.Map<IEnumerable<PlatformTorRead>>(platforms);
+        IEnumerable<PlatformToRead> platformsTorRead = _mapper.Map<IEnumerable<PlatformToRead>>(platforms);
         return Ok(platformsTorRead);
+    }
+
+    [HttpPost]
+    public IActionResult TestInboundConnection()
+    {
+        Console.WriteLine("==> Inbound POST # Command service");
+        return Ok("Inbound test from Platforms Controller");
     }
 }

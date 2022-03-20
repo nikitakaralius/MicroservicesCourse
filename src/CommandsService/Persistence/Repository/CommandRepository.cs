@@ -11,6 +11,9 @@ public class CommandRepository : ICommandRepository
     public IEnumerable<Platform> AllPlatforms() => _context.Platforms;
 
     public bool PlatformExists(int id) => _context.Platforms.Any(p => p.Id == id);
+    
+    public bool ExternalPlatformsExists(int id) =>
+        _context.Platforms.Any(p => p.ExternalId == id);
 
     public void Create(Platform platform) => _context.Platforms.Add(platform);
 
@@ -24,6 +27,10 @@ public class CommandRepository : ICommandRepository
             .FirstOrDefault(c => c.PlatformId == platformId
                                  && c.Id == commandId);
 
-    public void Create(int platformId, Command command) =>
-        _context.Commands.Add(command with {PlatformId = platformId});
+    public Command Create(int platformId, Command command)
+    {
+        Command commandToAdd = command with {PlatformId = platformId};
+        _context.Commands.Add(commandToAdd);
+        return commandToAdd;
+    }
 }
